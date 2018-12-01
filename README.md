@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/KlotzAndrew/dockerfiles.svg?branch=master)](https://travis-ci.com/KlotzAndrew/dockerfiles)
+
 ## Dockerfiles
 
 Assortment of usefull dockerfiles, available as `klotzandrew/<foldername>:latest`
