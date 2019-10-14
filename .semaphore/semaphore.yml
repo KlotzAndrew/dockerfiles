@@ -1,0 +1,16 @@
+ersion: v1.0
+name: First pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Lint
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: make test
+          commands:
+            - make test
