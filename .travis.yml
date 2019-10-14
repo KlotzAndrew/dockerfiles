@@ -8,5 +8,5 @@ jobs:
     - stage: test
       script: make test
     - stage: deploy
-      script: build.sh
+      script: ./build.sh
       if: branch = master
