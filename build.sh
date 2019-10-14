@@ -2,7 +2,7 @@
 
 set -e
 
-# docker login -u klotzandrew
+docker login -u klotzandrew -p "$DOCKER_SECRET_KEY"
 
 build() {
 	f=$1
