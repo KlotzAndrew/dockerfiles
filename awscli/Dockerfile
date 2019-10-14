@@ -9,8 +9,6 @@ RUN apk --no-cache --update add \
 	mailcap \
 	&& pip install awscli \
 	&& apk -v --purge del py-pip \
-	&& rm /var/cache/apk/* \
 	&& mkdir -p /root/.aws
 
 ENTRYPOINT ["aws"]
-
