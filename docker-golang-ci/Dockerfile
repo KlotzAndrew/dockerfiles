@@ -5,9 +5,10 @@ FROM golang:1.13.5
 RUN apt-get update \
   && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
-    git mercurial xvfb apt \
-    locales sudo openssh-client ca-certificates tar gzip parallel \
-    net-tools netcat unzip zip bzip2 gnupg curl wget
+  git mercurial xvfb apt \
+  locales sudo openssh-client ca-certificates tar gzip parallel \
+  net-tools netcat unzip zip bzip2 gnupg curl wget \
+  awscli
 
 # Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
