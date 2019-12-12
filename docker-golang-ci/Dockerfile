@@ -1,4 +1,4 @@
-FROM golang:1.11.4
+FROM golang:1.13.5
 
 # man directory is missing in some base images
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
