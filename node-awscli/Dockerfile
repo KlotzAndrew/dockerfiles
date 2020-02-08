@@ -7,5 +7,6 @@ RUN apt-get update -y && apt-get install -y \
   awscli \
   git \
   curl \
+  build-essential \
   --no-install-recommends \
   && rm -rf /var/lib/apt/lists/*
