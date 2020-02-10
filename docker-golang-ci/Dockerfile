@@ -8,7 +8,7 @@ RUN apt-get update \
   git xvfb apt \
   locales sudo openssh-client ca-certificates tar gzip parallel \
   net-tools netcat unzip zip bzip2 gnupg curl wget \
-  awscli --no-install-recommends \
+  awscli \
   && rm -rf /var/lib/apt/lists/*
 
 # Set timezone to UTC by default
