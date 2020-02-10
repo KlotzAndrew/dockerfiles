@@ -7,9 +7,8 @@ RUN apt-get update \
   && apt-get install -y \
   git xvfb apt \
   locales sudo openssh-client ca-certificates tar gzip parallel \
-  net-tools netcat unzip zip bzip2 gnupg curl wget \
-  awscli \
-  && rm -rf /var/lib/apt/lists/*
+  net-tools netcat unzip zip bzip2 gnupg curl wget python python-pip \
+  && pip install awscli
 
 # Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime

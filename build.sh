@@ -12,11 +12,15 @@ build() {
 	repo=klotzandrew
 	tag=latest
 
+	sha=$(git rev-parse --short HEAD)
+
 	build_slug="$repo/$image:$tag"
+	sha_slug="$repo/$image:$sha"
 
 	echo "Building start: $build_slug"
-	docker build --rm --force-rm -t "$build_slug" "$image_path"
+	docker build --rm --force-rm -t "$build_slug" -t "$sha_slug" "$image_path"
 	docker push "$build_slug"
+	docker push "$sha_slug"
 
 	echo "====="
 	echo "Building done: $build_slug"
