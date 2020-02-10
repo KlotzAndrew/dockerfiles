@@ -1,14 +1,15 @@
-FROM golang:1.13.5
+FROM golang:1.13.5-stretch
 
 # man directory is missing in some base images
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
 RUN apt-get update \
   && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
-  git mercurial xvfb apt \
+  git xvfb apt \
   locales sudo openssh-client ca-certificates tar gzip parallel \
   net-tools netcat unzip zip bzip2 gnupg curl wget \
-  awscli
+  awscli --no-install-recommends \
+  && rm -rf /var/lib/apt/lists/*
 
 # Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
@@ -53,5 +54,5 @@ RUN DOCKERIZE_URL="https://circle-downloads.s3.amazonaws.com/circleci-images/cac
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | INSTALL_DIRECTORY=/usr/local/bin sh
 RUN curl -sSL https://github.com/gotestyourself/gotestsum/releases/download/v0.3.4/gotestsum_0.3.4_linux_amd64.tar.gz | \
   tar -xz -C /usr/local/bin gotestsum
-RUN curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.16.0
+RUN curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.23.3
 RUN go get -u github.com/golang/dep/cmd/dep
