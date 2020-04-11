@@ -55,3 +55,20 @@ RUN curl -sSL https://github.com/gotestyourself/gotestsum/releases/download/v0.3
   tar -xz -C /usr/local/bin gotestsum
 RUN curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.23.3
 RUN go get -u github.com/golang/dep/cmd/dep
+
+# brotli
+RUN apt install -y git build-essential gcc make bc sed autoconf automake libtool git apt-transport-https
+RUN git clone https://github.com/google/brotli.git
+RUN cd brotli && \
+  ./bootstrap && \
+  ./configure \
+  --prefix=/usr \
+  --bindir=/usr/bin \
+  --sbindir=/usr/sbin \
+  --libexecdir=/usr/lib/brotli \
+  --libdir=/usr/lib/brotli \
+  --datarootdir=/usr/share \
+  --mandir=/usr/share/man/man1 \
+  --docdir=/usr/share/doc && \
+  make && \
+  make install
