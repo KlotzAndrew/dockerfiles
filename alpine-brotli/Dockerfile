@@ -16,4 +16,5 @@ FROM alpine:3.11
 
 RUN apk --no-cache add --update ca-certificates libc6-compat libstdc++
 
+COPY --from=builder /usr/local/brotli/out/brotli /usr/bin/brotli
 COPY --from=builder /usr/local/lib /usr/local/lib
