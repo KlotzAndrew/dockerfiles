@@ -54,7 +54,6 @@ RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | INSTAL
 RUN curl -sSL https://github.com/gotestyourself/gotestsum/releases/download/v0.3.4/gotestsum_0.3.4_linux_amd64.tar.gz | \
   tar -xz -C /usr/local/bin gotestsum
 RUN curl -sfL https://install.goreleaser.com/github.com/golangci/golangci-lint.sh | sh -s v1.23.3
-RUN go get -u github.com/golang/dep/cmd/dep
 
 # brotli
 RUN apt install -y git build-essential gcc make bc sed autoconf automake libtool git apt-transport-https

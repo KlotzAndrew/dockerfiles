@@ -1,4 +1,4 @@
-FROM golang:1.13.5-stretch as builder
+FROM golang:1.18-stretch as builder
 
 LABEL maintainer "Andrew Klotz <agc.klotz@gmail.com>"
 
