@@ -1,4 +1,4 @@
-FROM golang:1.18-stretch
+FROM golang:1.20-bookworm
 
 # man directory is missing in some base images
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
@@ -7,8 +7,12 @@ RUN apt-get update \
   && apt-get install -y \
   git xvfb apt \
   locales sudo openssh-client ca-certificates tar gzip parallel \
-  net-tools netcat unzip zip bzip2 gnupg curl wget python python-pip \
-  && pip install awscli
+  net-tools netcat-openbsd unzip zip bzip2 gnupg curl wget python3-pip
+
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install \
+  && rm awscliv2.zip
 
 # Set timezone to UTC by default
 RUN ln -sf /usr/share/zoneinfo/Etc/UTC /etc/localtime
