@@ -5,7 +5,7 @@ FROM golang:1.20-bookworm
 RUN apt-get update \
   && mkdir -p /usr/share/man/man1 \
   && apt-get install -y \
-  git xvfb apt groff \
+  git xvfb apt groff less \
   locales sudo openssh-client ca-certificates tar gzip parallel \
   net-tools netcat-openbsd unzip zip bzip2 gnupg curl wget python3-pip
 
