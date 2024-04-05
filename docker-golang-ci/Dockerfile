@@ -1,4 +1,4 @@
-FROM golang:1.20-bookworm
+FROM golang:1.22-bookworm
 
 # man directory is missing in some base images
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
